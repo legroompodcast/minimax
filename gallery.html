@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - MiniMax Productions LLC</title>
+    <!-- Materialize CSS CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: 'Roboto', sans-serif;
+        }
+        nav {
+            background-color: #000000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand-logo {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+        }
+        .brand-logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        h1, h2 {
+            color: #FFFFFF;
+        }
+        .container {
+            margin-top: 80px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .gallery img {
+            width: 300px;
+            height: auto;
+            border: 2px solid #FFFFFF;
+            margin-bottom: 20px;
+        }
+        footer {
+            padding: 20px 0;
+            background-color: #000000;
+            color: #FFFFFF;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-wrapper container">
+            <!-- Logo and Name -->
+            <a href="index.html" class="brand-logo left">
+                <img src="minimaxlogo.png" alt="MiniMax Logo"> <!-- Logo image -->
+                MiniMax Productions LLC
+            </a>
+            <!-- Tabs -->
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Gallery Content -->
+    <div class="container">
+        <h2 class="center-align">Gallery</h2>
+        <div class="gallery">
+            <!-- Example Images - Replace these paths with your actual product images -->
+            <img src="20ozBlankBlack.png" alt="20oz Black Tumbler">
+            <img src="20ozBlankPink.png" alt="20oz Pink Tumbler">
+            <img src="30ozBlankBlack.png" alt="30oz Black Tumbler">
+            <img src="30ozBlankOlive.png" alt="30oz Olive Tumbler">
+            <img src="BOBlackBlank.png" alt="7' Black Bottle Opener">
+            <img src="BOPinkBlank.png" alt="7' Pink Bottle Opener">
+            <img src="SCBlackBlank.png" alt="4' Slate Coaster">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MiniMax Productions LLC. All rights reserved.</p>
+    </footer>
+
+    <!-- Materialize JavaScript and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Materialize JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

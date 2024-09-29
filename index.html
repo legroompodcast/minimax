@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniMax Productions LLC</title>
+    <!-- Materialize CSS CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #FFFFFF; /* White background */
+            color: #000000; /* Black text */
+            font-family: 'Roboto', sans-serif;
+        }
+        nav {
+            background-color: #FFFFFF; /* White navigation */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #000000; /* Black border for accents */
+        }
+        .brand-logo {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+        }
+        .brand-logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .nav-wrapper a {
+            color: #000000; /* Black text for nav links */
+        }
+        .nav-wrapper a:hover {
+            color: #666666; /* Dark gray hover effect */
+        }
+        h1, h2, h3 {
+            color: #000000; /* Black headings */
+        }
+        .input-field input, .input-field textarea, .input-field select {
+            color: #000000; /* Black input text */
+            border-bottom: 1px solid #000000; /* Black underline */
+        }
+        .input-field input:focus, .input-field textarea:focus, .input-field select:focus {
+            border-bottom: 1px solid #000000; /* Black focus underline */
+            box-shadow: 0 1px 0 0 #000000;
+        }
+        .input-field label {
+            color: #000000; /* Black label text */
+        }
+        .btn {
+            background-color: #000000; /* Black button */
+            color: #FFFFFF; /* White button text */
+        }
+        .btn:hover {
+            background-color: #333333; /* Darker black button hover */
+        }
+        footer {
+            padding: 20px 0;
+            background-color: #FFFFFF;
+            color: #000000;
+            text-align: center;
+            border-top: 2px solid #000000; /* Black border for accents */
+        }
+        #productImage {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border: 2px solid #000000; /* Black border */
+        }
+        #estimatedPrice {
+            font-size: 1.2rem;
+            color: #000000; /* Black estimated price text */
+            margin-top: 20px;
+        }
+        #paymentInfo {
+            font-size: 0.9rem;
+            color: #333333; /* Darker black payment info text */
+            margin-top: 10px;
+            font-style: italic;
+        }
+        /* Customize select dropdown arrow color */
+        .select-dropdown.dropdown-content li span {
+            color: #000000; /* Black dropdown text */
+        }
+        /* Layout adjustments */
+        .form-container {
+            margin-top: 50px;
+        }
+        @media only screen and (min-width: 992px) {
+            .form-container {
+                display: flex;
+            }
+            .form-container .form-column {
+                width: 50%;
+            }
+            .form-container .image-column {
+                width: 50%;
+                padding-left: 40px;
+                box-sizing: border-box;
+            }
+        }
+        .image-column {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-wrapper container">
+            <!-- Logo and Name -->
+            <a href="index.html" class="brand-logo left">
+                <img src="minimaxlogo.png" alt="MiniMax Logo"> <!-- Logo image -->
+                MiniMax Productions LLC
+            </a>
+            <!-- Tabs -->
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="about.html">About Us</a></li> <!-- Link to About Us page -->
+                <li><a href="gallery.html">Gallery</a></li> <!-- Link to Gallery page -->
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="center-align">Custom Laser Engraving & More</h2>
+        <p class="flow-text center-align">Welcome to MiniMax Productions LLC, where we specialize in crafting custom laser-engraved products. From slate coasters to tumblers, each item is tailored to perfection.</p>
+
+        <!-- Contact Information -->
+        <p class="flow-text center-align" style="color: #333333;">
+            To order multiple products or designs, please contact us directly at <a href="mailto:orders@minimax.llc" style="color: #000000;">orders@minimax.llc</a>
+        </p>
+
+        <div class="row form-container">
+            <!-- Form Column -->
+            <div class="col s12 l6 form-column">
+                <form action="submit_order.php" method="POST" enctype="multipart/form-data">
+                    <h3 class="center-align">Order Your Custom Product</h3>
+
+                    <!-- Select Product -->
+                    <div class="input-field">
+                        <select id="product" name="product" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <!-- 20oz Tumblers -->
+                            <optgroup label="20oz Tumblers">
+                                <option value="20ozBlack">20oz Black Tumbler</option>
+                                <option value="20ozPink">20oz Pink Tumbler</option>
+                            </optgroup>
+                            <!-- 30oz Tumblers -->
+                            <optgroup label="30oz Tumblers">
+                                <option value="30ozBlack">30oz Black Tumbler</option>
+                                <option value="30ozOlive">30oz Olive Tumbler</option>
+                            </optgroup>
+                            <!-- Bottle Openers -->
+                            <optgroup label="Bottle Openers">
+                                <option value="BOBlack">7" Black Bottle Opener</option>
+                                <option value="BOPink">7" Pink Bottle Opener</option>
+                            </optgroup>
+                            <!-- Slate Coasters -->
+                            <optgroup label="Slate Coasters">
+                                <option value="SCBlack">4" Slate Coaster</option>
+                            </optgroup>
+                        </select>
+                        <label for="product">Select Product:</label>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="input-field">
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                        <label for="quantity">Quantity:</label>
+                    </div>
+
+                    <!-- Name -->
+                    <div class="input-field">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Name:</label>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="input-field">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email:</label>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="input-field">
+                        <textarea id="description" name="description" class="materialize-textarea" required></textarea>
+                        <label for="description">Product Description:</label>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Upload Design</span>
+                            <input type="file" id="image" name="image" accept="image/*" required>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Upload Your Design">
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="center-align">
+                        <button type="submit" class="btn waves-effect waves-light">Submit Order</button>
+                    </div>
+
+                    <!-- Payment Information -->
+                    <div class="center-align">
+                        <p id="paymentInfo">
+                            *Upon design approval, an invoice will be sent to the email provided above for payment information.
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Image and Price Column -->
+            <div class="col s12 l6 image-column">
+                <!-- Product Image -->
+                <img id="productImage" src="" alt="Product Image" />
+
+                <!-- Estimated Price -->
+                <p id="estimatedPrice"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MiniMax Productions LLC. All rights reserved.</p>
+    </footer>
+
+    <!-- Materialize JavaScript and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Materialize JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Materialize components
+            var elems = document.querySelectorAll('select');
+            M.FormSelect.init(elems);
+
+            // Reset the form on page load
+            resetForm();
+
+            // Event listeners
+            document.getElementById('quantity').addEventListener('input', updateEstimatedPrice);
+            document.getElementById('product').addEventListener('change', updateProductImage);
+        });
+
+        const products = {
+            '20ozBlack': {
+                price: 25.00,
+                image: '20ozBlankBlack.png',
+                name: '20oz Black Tumbler'
+            },
+            '20ozPink': {
+                price: 25.00,
+                image: '20ozBlankPink.png',
+                name: '20oz Pink Tumbler'
+            },
+            '30ozBlack': {
+                price: 25.00,
+                image: '30ozBlankBlack.png',
+                name: '30oz Black Tumbler'
+            },
+            '30ozOlive': {
+                price: 25.00,
+                image: '30ozBlankOlive.png',
+                name: '30oz Olive Tumbler'
+            },
+            'BOBlack': {
+                price: 15.00,
+                image: 'BOBlackBlank.png',
+                name: '7" Black Bottle Opener'
+            },
+            'BOPink': {
+                price: 15.00,
+                image: 'BOPinkBlank.png',
+                name: '7" Pink Bottle Opener'
+            },
+            'SCBlack': {
+                price: 7.50,
+                image: 'SCBlackBlank.png',
+                name: '4" Slate Coaster'
+            }
+        };
+
+        function updateProductImage() {
+            const productSelect = document.getElementById('product');
+            const productImage = document.getElementById('productImage');
+            const selectedProduct = productSelect.value;
+
+            if (products[selectedProduct]) {
+                productImage.src = products[selectedProduct].image;
+            } else {
+                productImage.src = '';
+            }
+            updateEstimatedPrice();
+        }
+
+        function updateEstimatedPrice() {
+            const productSelect = document.getElementById('product');
+            const quantityInput = document.getElementById('quantity');
+            const estimatedPriceElement = document.getElementById('estimatedPrice');
+            const selectedProduct = productSelect.value;
+            const quantity = parseInt(quantityInput.value) || 1;
+
+            if (products[selectedProduct]) {
+                const pricePerUnit = products[selectedProduct].price;
+                const totalPrice = pricePerUnit * quantity;
+                estimatedPriceElement.textContent = 'Estimated Price: $' + totalPrice.toFixed(2);
+            } else {
+                estimatedPriceElement.textContent = '';
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('product').selectedIndex = 0;
+            M.FormSelect.init(document.querySelectorAll('select'));
+            document.getElementById('productImage').src = '';
+            document.getElementById('estimatedPrice').textContent = '';
+            document.getElementById('quantity').value = 1;
+        }
+    </script>
+</body>
+</html>

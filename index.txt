@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniMax Productions LLC</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            background-color: #0D0D0D;
+            color: #F5F5F5;
+        }
+        h1, h2 {
+            color: #00FFB3;
+            text-shadow: 2px 2px 4px #002B36;
+        }
+        .nav {
+            background-color: #1A1A1A;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 255, 179, 0.5);
+        }
+        .nav a {
+            margin: 0 15px;
+            color: #00FFB3;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav a:hover {
+            color: #007f61;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #00FFB3;
+            box-shadow: 0 0 20px rgba(0, 255, 179, 0.7);
+            background-color: #1C1C1C;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            width: 100%;
+            text-align: left;
+        }
+        select, input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #333;
+            border: 2px solid #00FFB3;
+            color: #F5F5F5;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+        input[type="file"] {
+            text-align: left;
+        }
+        input[type="submit"] {
+            background-color: #00FFB3;
+            color: #0D0D0D;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #007f61;
+        }
+        #productImage {
+            margin-top: 20px;
+            width: 300px;
+            height: auto;
+            border: 2px solid #00FFB3;
+            box-shadow: 0 0 15px rgba(0, 255, 179, 0.7);
+        }
+        footer {
+            margin-top: 30px;
+            color: #666;
+            text-align: center;
+        }
+        .section {
+            margin: 50px 0;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        function updateProductImage() {
+            const productSelect = document.getElementById('product');
+            const productImage = document.getElementById('productImage');
+
+            switch (productSelect.value) {
+                case '20ozBlack':
+                    productImage.src = '20ozBlankBlack.png';
+                    break;
+                case '30ozOlive':
+                    productImage.src = '30ozBlankOlive.png';
+                    break;
+                case '30ozBlack':
+                    productImage.src = '30ozBlankBlack.png';
+                    break;
+                case '20ozPink':
+                    productImage.src = '20ozBlankPink.png';
+                    break;
+                default:
+                    productImage.src = '';
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="#about">About Us</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+
+    <!-- Home Section -->
+    <div class="container section" id="home">
+        <h1>MiniMax Productions LLC</h1>
+        <h2>Custom Laser Engraving & More</h2>
+        <p>Welcome to MiniMax Productions LLC, where we specialize in crafting custom laser-engraved products. From slate coasters to tumblers, each item is tailored to perfection. Check out some of our previous works below!</p>
+
+        <form action="submit_order.php" method="POST">
+            <h2>Order Your Custom Product</h2>
+
+            <label for="product">Select Product:</label>
+            <select id="product" name="product" onchange="updateProductImage()" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="20ozBlack">20oz Black Tumbler</option>
+                <option value="30ozOlive">30oz Olive Tumbler</option>
+                <option value="30ozBlack">30oz Black Tumbler</option>
+                <option value="20ozPink">20oz Pink Tumbler</option>
+            </select>
+
+            <img id="productImage" src="" alt="Product Image" />
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="description">Product Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="image">Upload Your Design:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+
+            <input type="submit" value="Submit Order">
+        </form>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="container section" id="about">
+        <h2>About Us</h2>
+        <p>At MiniMax Productions LLC, we take pride in transforming your ideas into beautifully engraved products. With years of experience and a passion for detail, we create items that make a statement. Whether it's personalized gifts or corporate branding, we've got you covered.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 MiniMax Productions LLC. All rights reserved.</p>
+    </footer>
+</body>
+</html>
