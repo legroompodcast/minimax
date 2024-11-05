@@ -1,3 +1,108 @@
-.title {
-    color: green;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #3f51b5; /* Material-UI Primary Color */
+}
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #616161; /* Material-UI Grey Tone */
+}
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.item {
+    width: 200px;
+    border-radius: 8px; /* Material-UI Rounded Corners */
+    background-color: #fff;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Material-UI Shadow */
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.item:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+}
+.item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+    border-radius: 4px; /* Slightly rounded for images */
+}
+.price {
+    font-weight: 500;
+    color: #3f51b5; /* Material-UI Primary Color */
+    margin-top: 8px;
+}
+.note {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #757575; /* Material-UI Grey Tone */
+    max-width: 800px;
+    text-align: center;
+}
+a {
+    color: #3f51b5; /* Material-UI Primary Color */
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .items {
+        gap: 15px;
+    }
+    .item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 0.9em;
+    }
+    .items {
+        gap: 10px;
+    }
+    .item {
+        width: 100%;
+    }
+    .note {
+        font-size: 0.8em;
+    }
 }

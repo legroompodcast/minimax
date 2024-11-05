@@ -1,15 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Title</title>
-        <link rel="stylesheet" href="styles.css" />
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <h1 class="title">Hello World</h1>
-        <div id="mainDiv">Hello Div</div>
-        <br />
-        <button onclick="buttonClicked()">Click me</button>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniMax Productions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .item {
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .note {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>MiniMax Productions</h1>
+    <p>This site is currently under construction. If you would like to place an order, please email <a href="mailto:orders@minimax.llc">orders@minimax.llc</a> using the items shown below.</p>
+    
+    <div class="items">
+        <div class="item">
+            <img src="20ozBlankBlack.png" alt="20oz Black Tumbler">
+            <p>20oz Black Tumbler</p>
+            <p class="price">$25.00*</p>
+        </div>
+        <div class="item">
+            <img src="20ozBlankPink.png" alt="20oz Pink Tumbler">
+            <p>20oz Pink Tumbler</p>
+            <p class="price">$25.00*</p>
+        </div>
+        <div class="item">
+            <img src="30ozBlankBlack.png" alt="30oz Black Tumbler">
+            <p>30oz Black Tumbler</p>
+            <p class="price">$25.00*</p>
+        </div>
+        <div class="item">
+            <img src="30ozBlankOlive.png" alt="30oz Olive Tumbler">
+            <p>30oz Olive Tumbler</p>
+            <p class="price">$25.00*</p>
+        </div>
+        <div class="item">
+            <img src="BOBlackBlank.png" alt="7 inch Black Bottle Opener">
+            <p>7" Black Bottle Opener</p>
+            <p class="price">$15.00*</p>
+        </div>
+        <div class="item">
+            <img src="BOPinkBlank.png" alt="7 inch Pink Bottle Opener">
+            <p>7" Pink Bottle Opener</p>
+            <p class="price">$15.00*</p>
+        </div>
+        <div class="item">
+            <img src="SCBlackBlank.png" alt="4 inch Slate Coaster">
+            <p>4" Slate Coaster</p>
+            <p class="price">$7.50*</p>
+        </div>
+    </div>
+
+    <p class="note">* Price may increase depending on how much editing is required. Please upload the highest quality images possible (graphics, scans of business cards, etc...)</p>
+</body>
 </html>
